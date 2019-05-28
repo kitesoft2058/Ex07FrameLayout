@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- 아래 FrameLayout이 보여주는 자식뷰들을 변경하기 위한 버튼들 수평 배치 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="korea"
+            android:onClick="clickBtn"/>
+        <Button
+            android:id="@+id/btn02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="japan"
+            android:onClick="clickBtn"/>
+        <Button
+            android:id="@+id/btn03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="china"
+            android:onClick="clickBtn"/>
+
+    </LinearLayout>
+
+    <!-- FramLayout안에 놓여진 뷰들은 기본적으로 겹쳐짐 -->
+    <!-- 특별한 기능 없이 뷰들을 좌상단에 배치함-->
+    <!-- 이 예제에서는 자식뷰로 LineaerLayout 3개을 가지면 자식뷰의 사이즈가 match_parent 여서 좌상단 배치처럼 보이지 않는 것임-->
+    <!-- RelativeLayout의 전신이며 지금도 TabWidget등에서 그 필요성이 있음. 하지만 대부분은 RelativeLayout을 더 선호하여 사용함 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 태극기이미지와 글씨를 가진 자식뷰 1 -->
+        <LinearLayout
+            android:id="@+id/layout_korea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/korea"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KOREA"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <!-- 일본국기이미지와 글씨를 가진 자식뷰 2 -->
+        <!-- 기본적으로 FrameLayout안에서는 나중에 작성한 뷰가 위에 배치되어 태극기가 가려져야 하지만 이 LinearLayout에 visibility="gone"속성을 줘서 현재 보이지 않도록 되어 있음 -->
+        <LinearLayout
+            android:id="@+id/layout_japan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/japan"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JAPAN"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <!-- 중국국기이미지와 글씨를 가진 자식뷰 3 -->
+        <!-- 기본적으로 FrameLayout안에서는 나중에 작성한 뷰가 위에 배치되어 태극기가 가려져야 하지만 이 LinearLayout에 visibility="gone"속성을 줘서 현재 보이지 않도록 되어 있음 -->
+        <LinearLayout
+            android:id="@+id/layout_china"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/china"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHINA"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
